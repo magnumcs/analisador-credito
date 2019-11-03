@@ -1,7 +1,6 @@
 package com.portifolio.magnum.validadorcreditoapi.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.portifolio.magnum.validadorcreditoapi.Model.PropostaCredito;
 import com.portifolio.magnum.validadorcreditoapi.domain.DetalheRespostaEnum;
 import com.portifolio.magnum.validadorcreditoapi.domain.RespostaPropostaEnum;
 import com.portifolio.magnum.validadorcreditoapi.domain.wrapper.PropostaCreditoWrapper;
@@ -74,7 +73,8 @@ public class AnalisePropostaCreditoControllerTest {
 
     @Test
     public void quandoAPropostaDeCreditoTemRendaIgualA8000Maior18AnosCasado3Dependentes() throws Exception {
-        PropostaCreditoWrapper propostaCreditoWrapper = new PropostaCreditoWrapper(propostaCreditoRendaIgualA8000IdadeSuperior18AnosCasado3Dependentes());
+        PropostaCreditoWrapper propostaCreditoWrapper =
+                new PropostaCreditoWrapper(propostaCreditoRendaIgualA8000IdadeSuperior18AnosCasado3Dependentes());
 
         mvc.perform(MockMvcRequestBuilders
                 .post("/api/analise/proposta")
@@ -84,6 +84,96 @@ public class AnalisePropostaCreditoControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.respostaProposta").value(RespostaPropostaEnum.APROVADO.getValor()))
                 .andExpect(jsonPath("$.detalheResposta").value(DetalheRespostaEnum.ENTRE_1500_2000.getValor()));
+    }
+
+    @Test
+    public void quandoAPropostaDeCreditoTemRendaIgualA5000Maior18AnosCasado3Dependentes() throws Exception {
+        PropostaCreditoWrapper propostaCreditoWrapper =
+                new PropostaCreditoWrapper(propostaCreditoRendaIgualA5000IdadeSuperior18AnosCasado3Dependentes());
+
+        mvc.perform(MockMvcRequestBuilders
+                .post("/api/analise/proposta")
+                .content(asJsonString(propostaCreditoWrapper))
+                .contentType(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.respostaProposta").value(RespostaPropostaEnum.APROVADO.getValor()))
+                .andExpect(jsonPath("$.detalheResposta").value(DetalheRespostaEnum.ENTRE_1000_1500.getValor()));
+    }
+
+    @Test
+    public void quandoAPropostaDeCreditoTemRendaIgualA8000Maior18AnosCasado2Dependentes() throws Exception {
+        PropostaCreditoWrapper propostaCreditoWrapper =
+                new PropostaCreditoWrapper(propostaCreditoRendaIgualA8000IdadeSuperior18AnosCasado2Dependentes());
+
+        mvc.perform(MockMvcRequestBuilders
+                .post("/api/analise/proposta")
+                .content(asJsonString(propostaCreditoWrapper))
+                .contentType(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.respostaProposta").value(RespostaPropostaEnum.APROVADO.getValor()))
+                .andExpect(jsonPath("$.detalheResposta").value(DetalheRespostaEnum.SUPERIOR_2000.getValor()));
+    }
+
+    @Test
+    public void quandoAPropostaDeCreditoTemRendaIgualA1500Maior18AnosViuvo3Dependentes() throws Exception {
+        PropostaCreditoWrapper propostaCreditoWrapper =
+                new PropostaCreditoWrapper(propostaCreditoRendaIgualA1500IdadeSuperior18AnosViuva3Dependentes());
+
+        mvc.perform(MockMvcRequestBuilders
+                .post("/api/analise/proposta")
+                .content(asJsonString(propostaCreditoWrapper))
+                .contentType(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.respostaProposta").value(RespostaPropostaEnum.REPROVADO.getValor()))
+                .andExpect(jsonPath("$.detalheResposta").value(DetalheRespostaEnum.REPROVADO_POLITIVA_CREDITO.getValor()));
+    }
+
+    @Test
+    public void quandoAPropostaDeCreditoTemRendaIgualA2500Maior18AnosSolteiro2Dependentes() throws Exception {
+        PropostaCreditoWrapper propostaCreditoWrapper =
+                new PropostaCreditoWrapper(propostaCreditoRendaIgualA2500IdadeSuperior18AnosSolteiro2Dependentes());
+
+        mvc.perform(MockMvcRequestBuilders
+                .post("/api/analise/proposta")
+                .content(asJsonString(propostaCreditoWrapper))
+                .contentType(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.respostaProposta").value(RespostaPropostaEnum.APROVADO.getValor()))
+                .andExpect(jsonPath("$.detalheResposta").value(DetalheRespostaEnum.ENTRE_100_500.getValor()));
+    }
+
+    @Test
+    public void quandoAPropostaDeCreditoTemRendaIgualA500Idade16AnosSolteiro() throws Exception {
+        PropostaCreditoWrapper propostaCreditoWrapper =
+                new PropostaCreditoWrapper(propostaCreditoRendaIgual500Idade16AnosSolteiro());
+
+        mvc.perform(MockMvcRequestBuilders
+                .post("/api/analise/proposta")
+                .content(asJsonString(propostaCreditoWrapper))
+                .contentType(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.respostaProposta").value(RespostaPropostaEnum.REPROVADO.getValor()))
+                .andExpect(jsonPath("$.detalheResposta").value(DetalheRespostaEnum.RENDA_BAIXA.getValor()));
+    }
+
+    @Test
+    public void quandoAPropostaDeCreditoTemRendaIgualA8000IdadeSuperior18AnosCasado5Dependentes() throws Exception {
+        PropostaCreditoWrapper propostaCreditoWrapper =
+                new PropostaCreditoWrapper(propostaCreditoRendaIgual8000IdadeSuperior18AnosCasado5Dependentes());
+
+        mvc.perform(MockMvcRequestBuilders
+                .post("/api/analise/proposta")
+                .content(asJsonString(propostaCreditoWrapper))
+                .contentType(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.respostaProposta").value(RespostaPropostaEnum.APROVADO.getValor()))
+                .andExpect(jsonPath("$.detalheResposta").value(DetalheRespostaEnum.ENTRE_1000_1500.getValor()));
     }
 
     public static String asJsonString(final Object obj) {

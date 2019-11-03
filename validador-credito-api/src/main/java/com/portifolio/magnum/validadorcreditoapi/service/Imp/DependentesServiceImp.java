@@ -9,9 +9,15 @@ public class DependentesServiceImp implements DependentesService {
 
     @Override
     public PropostaCredito validaDependentes(PropostaCredito propostaCredito) {
-        propostaCredito
-                .setScore(propostaCredito.getScore() /
-                                (propostaCredito.getDependentes() + 2));
+        if(propostaCredito.getDependentes() == 0) {
+            propostaCredito
+                    .setScore(propostaCredito.getScore() /
+                            (propostaCredito.getDependentes() + 2));
+        } else {
+            propostaCredito
+                    .setScore(propostaCredito.getScore() /
+                            (propostaCredito.getDependentes() + 1));
+        }
         return propostaCredito;
     }
 }

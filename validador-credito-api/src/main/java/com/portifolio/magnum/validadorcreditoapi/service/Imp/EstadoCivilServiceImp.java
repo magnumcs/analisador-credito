@@ -12,11 +12,16 @@ public class EstadoCivilServiceImp implements EstadoCivilService {
     public PropostaCredito validaEstadoCivil(PropostaCredito propostaCredito) {
         if(EstadoCivilEnum.SOLTEIRO.equals(propostaCredito.getEstadoCivil()) ||
                 EstadoCivilEnum.VIUVO.equals(propostaCredito.getEstadoCivil())) {
-            propostaCredito
-                    .setScore(propostaCredito.getScore() - 300);
+            if(propostaCredito.getDependentes() > 1) {
+                propostaCredito
+                        .setScore(propostaCredito.getScore() - 400);
+            } else {
+                propostaCredito
+                        .setScore(propostaCredito.getScore() - 300);
+            }
         } else if(EstadoCivilEnum.DIVORCIADO.equals(propostaCredito.getEstadoCivil())) {
             propostaCredito
-                    .setScore(propostaCredito.getScore() - 500);
+                    .setScore(propostaCredito.getScore() - 1000);
         }
         return propostaCredito;
     }
