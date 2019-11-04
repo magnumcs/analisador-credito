@@ -1,9 +1,9 @@
 package com.portifolio.magnum.validadorcreditoapi.service;
 
-import com.portifolio.magnum.validadorcreditoapi.Model.PropostaCredito;
+import com.portifolio.magnum.validadorcreditoapi.domain.wrapper.PropostaCreditoWrapper;
 
 public interface EstadoCivilService {
 
-    PropostaCredito validaEstadoCivil(PropostaCredito propostaCredito);
+    PropostaCreditoWrapper validaEstadoCivil(PropostaCreditoWrapper propostaCredito);
 
 }

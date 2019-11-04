@@ -1,28 +1,22 @@
 package com.portifolio.magnum.validadorcreditoapi.service;
 
-import com.portifolio.magnum.validadorcreditoapi.Model.PropostaCredito;
-import com.portifolio.magnum.validadorcreditoapi.repository.PropostaCreditoRepository;
+import com.portifolio.magnum.validadorcreditoapi.domain.wrapper.PropostaCreditoWrapper;
 import com.portifolio.magnum.validadorcreditoapi.service.Imp.IdadeServiceImp;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import static com.portifolio.magnum.validadorcreditoapi.mock.PropostaCreditoMock.*;
 import static org.junit.Assert.*;
-import static org.mockito.Mockito.*;
 
 @RunWith(MockitoJUnitRunner.Silent.class)
 public class IdadeServiceTest {
 
     @InjectMocks
     IdadeServiceImp idadeServiceImp;
-
-    @Mock
-    PropostaCreditoRepository propostaCreditoRepository;
 
     @Before
     public void setup() {
@@ -31,24 +25,24 @@ public class IdadeServiceTest {
 
     @Test
     public void quandoAIdadeEhInferiorA18AnosDeveDescontar500PontosDoScore() {
-        PropostaCredito propostaCredito = propostaCreditoRendaIgualA1000();
+        PropostaCreditoWrapper propostaCredito = propostaCreditoRendaIgualA1000();
 
-        when(propostaCreditoRepository.save(propostaCredito)).thenReturn(propostaCredito);
+        propostaCredito.setScore(propostaCredito.getRenda());
 
-        PropostaCredito propostaCredito1Resposta = idadeServiceImp.validaIdade(propostaCredito);
+        PropostaCreditoWrapper propostaCredito1Resposta = idadeServiceImp.validaIdade(propostaCredito);
 
-        assertEquals(500.0, propostaCredito1Resposta.getScore(), 0.0);
+        assertEquals(900, propostaCredito1Resposta.getScore(), 0.0);
     }
 
     @Test
     public void quandoAIdadeEhSuperiorA70AnosDeveDescontar500PontosDoScore() {
-        PropostaCredito propostaCredito = propostaCreditoRendaIgualA1000IdadeSuperior70Anos();
+        PropostaCreditoWrapper propostaCredito = propostaCreditoRendaIgualA1000IdadeSuperior70Anos();
 
-        when(propostaCreditoRepository.save(propostaCredito)).thenReturn(propostaCredito);
+        propostaCredito.setScore(propostaCredito.getRenda());
 
-        PropostaCredito propostaCredito1Resposta = idadeServiceImp.validaIdade(propostaCredito);
+        PropostaCreditoWrapper propostaCredito1Resposta = idadeServiceImp.validaIdade(propostaCredito);
 
-        assertEquals(500.0, propostaCredito1Resposta.getScore(), 0.0);
+        assertEquals(900, propostaCredito1Resposta.getScore(), 0.0);
     }
 
 

@@ -1,0 +1,57 @@
+version: '3.5'
+services:
+    db:
+      image: postgres
+      ports:
+        - "5432:5432"
+      networks:
+        - app-net
+      expose:
+        - "6543"
+      environment:
+        POSTGRES_USER: admin
+        POSTGRES_PASSWORD: admin
+        POSTGRES_DB: analisadordb
+      volumes:
+        - postgres-data:/var/lib/postgresql/data
+      restart: unless-stopped
+    cadastro-proposta-api:
+      image: cadastro-propsta-api
+      depends_on:
+        - db
+        - analisador-credito-api
+      ports:
+        - 8080:8080
+      networks:
+        - app-net
+      build:
+        context: ./cadastro-propsta-api/
+        dockerfile: Dockerfile
+      restart: unless-stopped
+    validador-credito-api:
+      image: validador-credito-api
+      ports:
+        - 8081:8081
+      networks:
+        - app-net
+      build:
+        context: ./validador-credito-api/
+        dockerfile: Dockerfile
+      restart: unless-stopped
+    newcredit-ui:
+      image: newcredit-ui
+      depends_on:
+        - newcredit-service
+      ports:
+        - 4200:80
+      networks:
+        - app-net
+      build:
+        context: ./front-end/
+        dockerfile: Dockerfile
+      restart: unless-stopped
+volumes:
+  postgres-data:        
+
+networks:
+  app-net:

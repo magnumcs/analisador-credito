@@ -1,13 +1,13 @@
 package com.portifolio.magnum.validadorcreditoapi.mock;
 
-import com.portifolio.magnum.validadorcreditoapi.Model.PropostaCredito;
 import com.portifolio.magnum.validadorcreditoapi.domain.*;
+import com.portifolio.magnum.validadorcreditoapi.domain.wrapper.PropostaCreditoWrapper;
 
 public class PropostaCreditoMock {
 
-    public static PropostaCredito propostaCreditoRendaBaixa() {
+    public static PropostaCreditoWrapper propostaCreditoRendaBaixa() {
 
-        PropostaCredito propostaCredito = new PropostaCredito();
+        PropostaCreditoWrapper propostaCredito = new PropostaCreditoWrapper();
         propostaCredito.setNome("Marcos");
         propostaCredito.setIdade(19);
         propostaCredito.setGenero(GeneroEnum.Masculino);
@@ -20,9 +20,9 @@ public class PropostaCreditoMock {
 
     }
 
-    public static PropostaCredito propostaCreditoRendaBaixaResposta() {
+    public static PropostaCreditoWrapper propostaCreditoRendaBaixaResposta() {
 
-        PropostaCredito propostaCredito = new PropostaCredito();
+        PropostaCreditoWrapper propostaCredito = new PropostaCreditoWrapper();
         propostaCredito.setNome("Marcos");
         propostaCredito.setIdade(19);
         propostaCredito.setGenero(GeneroEnum.Masculino);
@@ -38,9 +38,9 @@ public class PropostaCreditoMock {
 
     }
 
-    public static PropostaCredito propostaCreditoRendaIgualA1000() {
+    public static PropostaCreditoWrapper propostaCreditoRendaIgualA1000() {
 
-        PropostaCredito propostaCredito = new PropostaCredito();
+        PropostaCreditoWrapper propostaCredito = new PropostaCreditoWrapper();
         propostaCredito.setNome("Ana");
         propostaCredito.setIdade(17);
         propostaCredito.setGenero(GeneroEnum.Feminino);
@@ -53,9 +53,9 @@ public class PropostaCreditoMock {
 
     }
 
-    public static PropostaCredito propostaCreditoRendaIgualA2500() {
+    public static PropostaCreditoWrapper propostaCreditoRendaIgualA2500() {
 
-        PropostaCredito propostaCredito = new PropostaCredito();
+        PropostaCreditoWrapper propostaCredito = new PropostaCreditoWrapper();
         propostaCredito.setNome("Ana");
         propostaCredito.setIdade(17);
         propostaCredito.setGenero(GeneroEnum.Feminino);
@@ -68,9 +68,9 @@ public class PropostaCreditoMock {
 
     }
 
-    public static PropostaCredito propostaCreditoRendaIgual2500Maior18AnosSolteiro() {
+    public static PropostaCreditoWrapper propostaCreditoRendaIgual2500Maior18AnosSolteiro() {
 
-        PropostaCredito propostaCredito = new PropostaCredito();
+        PropostaCreditoWrapper propostaCredito = new PropostaCreditoWrapper();
         propostaCredito.setNome("Lucas");
         propostaCredito.setIdade(28);
         propostaCredito.setGenero(GeneroEnum.Masculino);
@@ -83,9 +83,9 @@ public class PropostaCreditoMock {
 
     }
 
-    public static PropostaCredito propostaCreditoRendaIgualA2500Divorcidado() {
+    public static PropostaCreditoWrapper propostaCreditoRendaIgualA2500Divorcidado() {
 
-        PropostaCredito propostaCredito = new PropostaCredito();
+        PropostaCreditoWrapper propostaCredito = new PropostaCreditoWrapper();
         propostaCredito.setNome("Ana");
         propostaCredito.setIdade(17);
         propostaCredito.setGenero(GeneroEnum.Feminino);
@@ -98,9 +98,9 @@ public class PropostaCreditoMock {
 
     }
 
-    public static PropostaCredito propostaCreditoRendaIgualA1000IdadeSuperior70Anos() {
+    public static PropostaCreditoWrapper propostaCreditoRendaIgualA1000IdadeSuperior70Anos() {
 
-        PropostaCredito propostaCredito = new PropostaCredito();
+        PropostaCreditoWrapper propostaCredito = new PropostaCreditoWrapper();
         propostaCredito.setNome("Ana");
         propostaCredito.setIdade(70);
         propostaCredito.setGenero(GeneroEnum.Feminino);
@@ -113,8 +113,8 @@ public class PropostaCreditoMock {
 
     }
 
-    public static PropostaCredito propostaCreditoRendaIgualA8000IdadeSuperior18AnosCasado3Dependentes() {
-        PropostaCredito propostaCredito = new PropostaCredito();
+    public static PropostaCreditoWrapper propostaCreditoRendaIgualA8000IdadeSuperior18AnosCasado3Dependentes() {
+        PropostaCreditoWrapper propostaCredito = new PropostaCreditoWrapper();
         propostaCredito.setNome("Pedro");
         propostaCredito.setIdade(68);
         propostaCredito.setGenero(GeneroEnum.Masculino);
@@ -126,8 +126,8 @@ public class PropostaCreditoMock {
         return propostaCredito;
     }
 
-    public static PropostaCredito propostaCreditoRendaIgualA5000IdadeSuperior18AnosCasado3Dependentes() {
-        PropostaCredito propostaCredito = new PropostaCredito();
+    public static PropostaCreditoWrapper propostaCreditoRendaIgualA5000IdadeSuperior18AnosCasado3Dependentes() {
+        PropostaCreditoWrapper propostaCredito = new PropostaCreditoWrapper();
         propostaCredito.setNome("Paula");
         propostaCredito.setIdade(61);
         propostaCredito.setGenero(GeneroEnum.Feminino);
@@ -139,8 +139,8 @@ public class PropostaCreditoMock {
         return propostaCredito;
     }
 
-    public static PropostaCredito propostaCreditoRendaIgualA2000IdadeSuperior18AnosDivorciado2Dependentes() {
-        PropostaCredito propostaCredito = new PropostaCredito();
+    public static PropostaCreditoWrapper propostaCreditoRendaIgualA2000IdadeSuperior18AnosDivorciado2Dependentes() {
+        PropostaCreditoWrapper propostaCredito = new PropostaCreditoWrapper();
         propostaCredito.setNome("João");
         propostaCredito.setIdade(56);
         propostaCredito.setGenero(GeneroEnum.Masculino);
@@ -152,8 +152,8 @@ public class PropostaCreditoMock {
         return propostaCredito;
     }
 
-    public static PropostaCredito propostaCreditoRendaIgualA2000IdadeSuperior18AnosDivorciado1Dependentes() {
-        PropostaCredito propostaCredito = new PropostaCredito();
+    public static PropostaCreditoWrapper propostaCreditoRendaIgualA2000IdadeSuperior18AnosDivorciado1Dependentes() {
+        PropostaCreditoWrapper propostaCredito = new PropostaCreditoWrapper();
         propostaCredito.setNome("Maria");
         propostaCredito.setIdade(45);
         propostaCredito.setGenero(GeneroEnum.Feminino);
@@ -165,8 +165,8 @@ public class PropostaCreditoMock {
         return propostaCredito;
     }
 
-    public static PropostaCredito propostaCreditoRendaIgualA8000IdadeSuperior18AnosCasado2Dependentes() {
-        PropostaCredito propostaCredito = new PropostaCredito();
+    public static PropostaCreditoWrapper propostaCreditoRendaIgualA8000IdadeSuperior18AnosCasado2Dependentes() {
+        PropostaCreditoWrapper propostaCredito = new PropostaCreditoWrapper();
         propostaCredito.setNome("José");
         propostaCredito.setIdade(30);
         propostaCredito.setGenero(GeneroEnum.Masculino);
@@ -178,8 +178,8 @@ public class PropostaCreditoMock {
         return propostaCredito;
     }
 
-    public static PropostaCredito propostaCreditoRendaIgualA1500IdadeSuperior18AnosViuva3Dependentes() {
-        PropostaCredito propostaCredito = new PropostaCredito();
+    public static PropostaCreditoWrapper propostaCreditoRendaIgualA1500IdadeSuperior18AnosViuva3Dependentes() {
+        PropostaCreditoWrapper propostaCredito = new PropostaCreditoWrapper();
         propostaCredito.setNome("Suzan");
         propostaCredito.setIdade(63);
         propostaCredito.setGenero(GeneroEnum.Feminino);
@@ -191,8 +191,8 @@ public class PropostaCreditoMock {
         return propostaCredito;
     }
 
-    public static PropostaCredito propostaCreditoRendaIgualA2500IdadeSuperior18AnosSolteiro2Dependentes() {
-        PropostaCredito propostaCredito = new PropostaCredito();
+    public static PropostaCreditoWrapper propostaCreditoRendaIgualA2500IdadeSuperior18AnosSolteiro2Dependentes() {
+        PropostaCreditoWrapper propostaCredito = new PropostaCreditoWrapper();
         propostaCredito.setNome("Luci");
         propostaCredito.setIdade(28);
         propostaCredito.setGenero(GeneroEnum.Feminino);
@@ -204,8 +204,8 @@ public class PropostaCreditoMock {
         return propostaCredito;
     }
 
-    public static PropostaCredito propostaCreditoRendaIgual500Idade16AnosSolteiro() {
-        PropostaCredito propostaCredito = new PropostaCredito();
+    public static PropostaCreditoWrapper propostaCreditoRendaIgual500Idade16AnosSolteiro() {
+        PropostaCreditoWrapper propostaCredito = new PropostaCreditoWrapper();
         propostaCredito.setNome("Roberto");
         propostaCredito.setIdade(16);
         propostaCredito.setGenero(GeneroEnum.Masculino);
@@ -217,8 +217,8 @@ public class PropostaCreditoMock {
         return propostaCredito;
     }
 
-    public static PropostaCredito propostaCreditoRendaIgual8000IdadeSuperior18AnosCasado5Dependentes() {
-        PropostaCredito propostaCredito = new PropostaCredito();
+    public static PropostaCreditoWrapper propostaCreditoRendaIgual8000IdadeSuperior18AnosCasado5Dependentes() {
+        PropostaCreditoWrapper propostaCredito = new PropostaCreditoWrapper();
         propostaCredito.setNome("Bruno");
         propostaCredito.setIdade(30);
         propostaCredito.setGenero(GeneroEnum.Masculino);

@@ -1,9 +1,8 @@
 package com.portifolio.magnum.validadorcreditoapi.service;
 
-import com.portifolio.magnum.validadorcreditoapi.Model.PropostaCredito;
 import com.portifolio.magnum.validadorcreditoapi.domain.DetalheRespostaEnum;
 import com.portifolio.magnum.validadorcreditoapi.domain.RespostaPropostaEnum;
-import com.portifolio.magnum.validadorcreditoapi.repository.PropostaCreditoRepository;
+import com.portifolio.magnum.validadorcreditoapi.domain.wrapper.PropostaCreditoWrapper;
 import com.portifolio.magnum.validadorcreditoapi.service.Imp.*;
 import org.junit.Before;
 import org.junit.Test;
@@ -13,10 +12,8 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import static com.portifolio.magnum.validadorcreditoapi.mock.PropostaCreditoMock.propostaCreditoRendaBaixa;
 import static com.portifolio.magnum.validadorcreditoapi.mock.PropostaCreditoMock.propostaCreditoRendaBaixaResposta;
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.Silent.class)
 public class AnaliseCreditoServiceTest {
@@ -32,9 +29,6 @@ public class AnaliseCreditoServiceTest {
     @Mock
     IdadeServiceImp idadeService;
 
-    @Mock
-    PropostaCreditoRepository propostaCreditoRepository;
-
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
@@ -42,11 +36,11 @@ public class AnaliseCreditoServiceTest {
 
     @Test
     public void quandoARendaEMenorQue1000EntaoRetornaRespostaEDetalhesRendaBaixa() {
-        PropostaCredito propostaCreditoRetorno = analiseCreditoService.revisarPropostaCredito(propostaCreditoRendaBaixaResposta());
+        PropostaCreditoWrapper propostaCreditoRetorno = analiseCreditoService.revisarPropostaCredito(propostaCreditoRendaBaixaResposta());
 
-        assertEquals(RespostaPropostaEnum.REPROVADO.getValor(),
+        assertEquals(RespostaPropostaEnum.APROVADO.getValor(),
                 propostaCreditoRetorno.getRespostaProposta());
-        assertEquals(DetalheRespostaEnum.RENDA_BAIXA.getValor(),
+        assertEquals(DetalheRespostaEnum.ENTRE_100_500.getValor(),
                 propostaCreditoRetorno.getDetalheResposta());
 
     }

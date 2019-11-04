@@ -31,7 +31,7 @@ public class AnalisePropostaCreditoControllerTest {
 
     @Test
     public void quandoAPropostaDeCreditoTemRendaMenorQue1000DeveLancarExcessaoRendaBaixa() throws Exception {
-        PropostaCreditoWrapper propostaCreditoWrapper = new PropostaCreditoWrapper(propostaCreditoRendaBaixa());
+        PropostaCreditoWrapper propostaCreditoWrapper = propostaCreditoRendaBaixa();
 
         mvc.perform(MockMvcRequestBuilders
                 .post("/api/analise/proposta")
@@ -45,7 +45,7 @@ public class AnalisePropostaCreditoControllerTest {
 
     @Test
     public void quandoAPropostaDeCreditoTemRendaIgualA1000Menor18AnosESolteiro() throws Exception {
-        PropostaCreditoWrapper propostaCreditoWrapper = new PropostaCreditoWrapper(propostaCreditoRendaIgualA1000());
+        PropostaCreditoWrapper propostaCreditoWrapper = propostaCreditoRendaIgualA1000();
 
         mvc.perform(MockMvcRequestBuilders
                 .post("/api/analise/proposta")
@@ -59,7 +59,7 @@ public class AnalisePropostaCreditoControllerTest {
 
     @Test
     public void quandoAPropostaDeCreditoTemRendaIgualA2500Maior18AnosESolteiro() throws Exception {
-        PropostaCreditoWrapper propostaCreditoWrapper = new PropostaCreditoWrapper(propostaCreditoRendaIgual2500Maior18AnosSolteiro());
+        PropostaCreditoWrapper propostaCreditoWrapper = propostaCreditoRendaIgual2500Maior18AnosSolteiro();
 
         mvc.perform(MockMvcRequestBuilders
                 .post("/api/analise/proposta")
@@ -74,7 +74,7 @@ public class AnalisePropostaCreditoControllerTest {
     @Test
     public void quandoAPropostaDeCreditoTemRendaIgualA8000Maior18AnosCasado3Dependentes() throws Exception {
         PropostaCreditoWrapper propostaCreditoWrapper =
-                new PropostaCreditoWrapper(propostaCreditoRendaIgualA8000IdadeSuperior18AnosCasado3Dependentes());
+                propostaCreditoRendaIgualA8000IdadeSuperior18AnosCasado3Dependentes();
 
         mvc.perform(MockMvcRequestBuilders
                 .post("/api/analise/proposta")
@@ -89,7 +89,7 @@ public class AnalisePropostaCreditoControllerTest {
     @Test
     public void quandoAPropostaDeCreditoTemRendaIgualA5000Maior18AnosCasado3Dependentes() throws Exception {
         PropostaCreditoWrapper propostaCreditoWrapper =
-                new PropostaCreditoWrapper(propostaCreditoRendaIgualA5000IdadeSuperior18AnosCasado3Dependentes());
+                propostaCreditoRendaIgualA5000IdadeSuperior18AnosCasado3Dependentes();
 
         mvc.perform(MockMvcRequestBuilders
                 .post("/api/analise/proposta")
@@ -104,7 +104,7 @@ public class AnalisePropostaCreditoControllerTest {
     @Test
     public void quandoAPropostaDeCreditoTemRendaIgualA8000Maior18AnosCasado2Dependentes() throws Exception {
         PropostaCreditoWrapper propostaCreditoWrapper =
-                new PropostaCreditoWrapper(propostaCreditoRendaIgualA8000IdadeSuperior18AnosCasado2Dependentes());
+                propostaCreditoRendaIgualA8000IdadeSuperior18AnosCasado2Dependentes();
 
         mvc.perform(MockMvcRequestBuilders
                 .post("/api/analise/proposta")
@@ -119,7 +119,7 @@ public class AnalisePropostaCreditoControllerTest {
     @Test
     public void quandoAPropostaDeCreditoTemRendaIgualA1500Maior18AnosViuvo3Dependentes() throws Exception {
         PropostaCreditoWrapper propostaCreditoWrapper =
-                new PropostaCreditoWrapper(propostaCreditoRendaIgualA1500IdadeSuperior18AnosViuva3Dependentes());
+                propostaCreditoRendaIgualA1500IdadeSuperior18AnosViuva3Dependentes();
 
         mvc.perform(MockMvcRequestBuilders
                 .post("/api/analise/proposta")
@@ -134,7 +134,7 @@ public class AnalisePropostaCreditoControllerTest {
     @Test
     public void quandoAPropostaDeCreditoTemRendaIgualA2500Maior18AnosSolteiro2Dependentes() throws Exception {
         PropostaCreditoWrapper propostaCreditoWrapper =
-                new PropostaCreditoWrapper(propostaCreditoRendaIgualA2500IdadeSuperior18AnosSolteiro2Dependentes());
+                propostaCreditoRendaIgualA2500IdadeSuperior18AnosSolteiro2Dependentes();
 
         mvc.perform(MockMvcRequestBuilders
                 .post("/api/analise/proposta")
@@ -149,7 +149,7 @@ public class AnalisePropostaCreditoControllerTest {
     @Test
     public void quandoAPropostaDeCreditoTemRendaIgualA500Idade16AnosSolteiro() throws Exception {
         PropostaCreditoWrapper propostaCreditoWrapper =
-                new PropostaCreditoWrapper(propostaCreditoRendaIgual500Idade16AnosSolteiro());
+                propostaCreditoRendaIgual500Idade16AnosSolteiro();
 
         mvc.perform(MockMvcRequestBuilders
                 .post("/api/analise/proposta")
@@ -164,7 +164,7 @@ public class AnalisePropostaCreditoControllerTest {
     @Test
     public void quandoAPropostaDeCreditoTemRendaIgualA8000IdadeSuperior18AnosCasado5Dependentes() throws Exception {
         PropostaCreditoWrapper propostaCreditoWrapper =
-                new PropostaCreditoWrapper(propostaCreditoRendaIgual8000IdadeSuperior18AnosCasado5Dependentes());
+                propostaCreditoRendaIgual8000IdadeSuperior18AnosCasado5Dependentes();
 
         mvc.perform(MockMvcRequestBuilders
                 .post("/api/analise/proposta")

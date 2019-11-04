@@ -1,7 +1,7 @@
 package com.portifolio.magnum.validadorcreditoapi.service.Imp;
 
-import com.portifolio.magnum.validadorcreditoapi.Model.PropostaCredito;
 import com.portifolio.magnum.validadorcreditoapi.domain.EstadoCivilEnum;
+import com.portifolio.magnum.validadorcreditoapi.domain.wrapper.PropostaCreditoWrapper;
 import com.portifolio.magnum.validadorcreditoapi.service.EstadoCivilService;
 import org.springframework.stereotype.Service;
 
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 public class EstadoCivilServiceImp implements EstadoCivilService {
 
     @Override
-    public PropostaCredito validaEstadoCivil(PropostaCredito propostaCredito) {
+    public PropostaCreditoWrapper validaEstadoCivil(PropostaCreditoWrapper propostaCredito) {
         if(EstadoCivilEnum.SOLTEIRO.equals(propostaCredito.getEstadoCivil()) ||
                 EstadoCivilEnum.VIUVO.equals(propostaCredito.getEstadoCivil())) {
             if(propostaCredito.getDependentes() > 1) {

@@ -1,28 +1,22 @@
 package com.portifolio.magnum.validadorcreditoapi.service;
 
-import com.portifolio.magnum.validadorcreditoapi.Model.PropostaCredito;
-import com.portifolio.magnum.validadorcreditoapi.repository.PropostaCreditoRepository;
+import com.portifolio.magnum.validadorcreditoapi.domain.wrapper.PropostaCreditoWrapper;
 import com.portifolio.magnum.validadorcreditoapi.service.Imp.DependentesServiceImp;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import static com.portifolio.magnum.validadorcreditoapi.mock.PropostaCreditoMock.*;
-import static org.mockito.Mockito.when;
 import static org.junit.Assert.*;
 
 @RunWith(MockitoJUnitRunner.Silent.class)
 public class DependentesServiceTest {
 
-    @Mock
-    DependentesService dependentesService;
-
-    @Mock
-    PropostaCreditoRepository propostaCreditoRepository;
+    @InjectMocks
+    DependentesServiceImp dependentesService;
 
     @Before
     public void setup() {
@@ -31,11 +25,11 @@ public class DependentesServiceTest {
 
     @Test
     public void quandoONumeroDeDependentesEhIgualA0RetornaScoreEntre100E500() {
-        PropostaCredito propostaCredito = propostaCreditoRendaIgualA1000();
+        PropostaCreditoWrapper propostaCredito = propostaCreditoRendaIgualA1000();
 
-        when(propostaCreditoRepository.save(propostaCredito)).thenReturn(propostaCredito);
+        propostaCredito.setScore(propostaCredito.getRenda());
 
-        PropostaCredito propostaCredito1Resposta = dependentesService.validaDependentes(propostaCredito);
+        PropostaCreditoWrapper propostaCredito1Resposta = dependentesService.validaDependentes(propostaCredito);
 
         assertTrue(scoreEntre100E150(propostaCredito1Resposta.getScore()));
 
@@ -43,11 +37,11 @@ public class DependentesServiceTest {
 
     @Test
     public void quandoONumeroDeDependentesEhIgualA0RetornaScoreEntre500E1000() {
-        PropostaCredito propostaCredito = propostaCreditoRendaIgualA2500();
+        PropostaCreditoWrapper propostaCredito = propostaCreditoRendaIgualA2500();
 
-        when(propostaCreditoRepository.save(propostaCredito)).thenReturn(propostaCredito);
+        propostaCredito.setScore(propostaCredito.getRenda());
 
-        PropostaCredito propostaCredito1Resposta = dependentesService.validaDependentes(propostaCredito);
+        PropostaCreditoWrapper propostaCredito1Resposta = dependentesService.validaDependentes(propostaCredito);
 
         assertTrue(scoreEntre500E1000(propostaCredito1Resposta.getScore()-300));
 

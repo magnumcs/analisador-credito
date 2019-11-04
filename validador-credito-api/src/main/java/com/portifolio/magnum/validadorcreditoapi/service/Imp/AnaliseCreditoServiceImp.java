@@ -1,8 +1,8 @@
 package com.portifolio.magnum.validadorcreditoapi.service.Imp;
 
-import com.portifolio.magnum.validadorcreditoapi.Model.PropostaCredito;
 import com.portifolio.magnum.validadorcreditoapi.domain.DetalheRespostaEnum;
 import com.portifolio.magnum.validadorcreditoapi.domain.RespostaPropostaEnum;
+import com.portifolio.magnum.validadorcreditoapi.domain.wrapper.PropostaCreditoWrapper;
 import com.portifolio.magnum.validadorcreditoapi.service.AnaliseCreditoService;
 import org.springframework.stereotype.Service;
 
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 public class AnaliseCreditoServiceImp implements AnaliseCreditoService {
 
     @Override
-    public PropostaCredito revisarPropostaCredito(PropostaCredito propostaCredito) {
+    public PropostaCreditoWrapper revisarPropostaCredito(PropostaCreditoWrapper propostaCredito) {
 
         if (propostaCredito.getScore() >= 100 && propostaCredito.getScore() <= 500){
             propostaCredito.setRespostaProposta(RespostaPropostaEnum.APROVADO.getValor());
