@@ -11,8 +11,8 @@ public interface PropostaCreditoService {
 
     PropostaCreditoWrapper buscarPropostaCreditoPorCPF(String cpf);
 
-    PropostaCreditoWrapper cadastrarNovaProposta(PropostaCreditoWrapper propostaCredito);
+    PropostaCreditoWrapper cadastrarNovaProposta(PropostaCreditoRespostaWrapper propostaCredito);
 
-    PropostaCreditoRespostaWrapper analisarPropostaCredito(PropostaCreditoWrapper propostaCreditoWrapper);
+    PropostaCreditoWrapper analisarPropostaCredito(PropostaCreditoWrapper propostaCreditoWrapper);
 
 }

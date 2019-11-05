@@ -26,6 +26,7 @@ public class PropostaCreditoRespostaWrapper implements Serializable {
     private Double renda;
     private String respostaProposta;
     private String detalheResposta;
+    private Double score;
 
     public PropostaCreditoRespostaWrapper(PropostaCredito propostaCredito) {
         this.id = propostaCredito.getId();
@@ -39,5 +40,6 @@ public class PropostaCreditoRespostaWrapper implements Serializable {
         this.renda = propostaCredito.getRenda();
         this.respostaProposta = propostaCredito.getRespostaProposta();
         this.detalheResposta = propostaCredito.getDetalheResposta();
+        this.score = propostaCredito.getScore();
     }
 }

@@ -29,8 +29,8 @@ public class CadastroPropostaController {
             @ApiResponse(code = 500, message = "Foi gerada uma exceção"),
     })
     @PostMapping(value = "/nova")
-    ResponseEntity<PropostaCreditoRespostaWrapper> novaProposta(@RequestBody PropostaCreditoWrapper propostaCreditoWrapper) {
-        PropostaCreditoRespostaWrapper response = propostaCreditoService.analisarPropostaCredito(propostaCreditoWrapper);
+    ResponseEntity<PropostaCreditoWrapper> novaProposta(@RequestBody PropostaCreditoWrapper propostaCreditoWrapper) {
+        PropostaCreditoWrapper response = propostaCreditoService.analisarPropostaCredito(propostaCreditoWrapper);
         return ResponseEntity.ok().body(response);
     }
 

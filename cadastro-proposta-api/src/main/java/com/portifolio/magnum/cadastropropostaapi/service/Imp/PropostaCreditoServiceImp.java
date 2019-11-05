@@ -49,9 +49,10 @@ public class PropostaCreditoServiceImp implements PropostaCreditoService {
     }
 
     @Override
-    public PropostaCreditoWrapper cadastrarNovaProposta(PropostaCreditoWrapper propostaCreditoWrapper) {
+    public PropostaCreditoWrapper cadastrarNovaProposta(PropostaCreditoRespostaWrapper propostaCreditoWrapper) {
         PropostaCredito propostaCredito = propostaCreditoRepository
                 .save(PropostaCredito.builder()
+                        .id(propostaCreditoWrapper.getId())
                         .nome(propostaCreditoWrapper.getNome())
                         .cpf(propostaCreditoWrapper.getCpf())
                         .idade(propostaCreditoWrapper.getIdade())
@@ -60,17 +61,19 @@ public class PropostaCreditoServiceImp implements PropostaCreditoService {
                         .estadoCivil(propostaCreditoWrapper.getEstadoCivil())
                         .dependentes(propostaCreditoWrapper.getDependentes())
                         .renda(propostaCreditoWrapper.getRenda())
+                        .respostaProposta(propostaCreditoWrapper.getRespostaProposta())
+                        .detalheResposta(propostaCreditoWrapper.getDetalheResposta())
+                        .score(propostaCreditoWrapper.getScore())
                         .build()
                 );
         return new PropostaCreditoWrapper(propostaCredito);
     }
 
     @Override
-    public PropostaCreditoRespostaWrapper analisarPropostaCredito(PropostaCreditoWrapper propostaCreditoWrapper) {
-        Optional<PropostaCredito> propostaCredito = propostaCreditoRepository.findByCpf(propostaCreditoWrapper.getCpf());
-        if(!propostaCredito.isPresent()) {
-            propostaCreditoWrapper = cadastrarNovaProposta(propostaCreditoWrapper);
-        }
-        return analisePropostaCreditoClient.analisarPropostaCredito(propostaCreditoWrapper);
+    public PropostaCreditoWrapper analisarPropostaCredito(PropostaCreditoWrapper propostaCreditoWrapper) {
+        PropostaCreditoRespostaWrapper resposta = analisePropostaCreditoClient.analisarPropostaCredito(propostaCreditoWrapper);
+        Optional<PropostaCredito> propostaCredito = propostaCreditoRepository.findByCpf(resposta.getCpf());
+        propostaCredito.ifPresent(credito -> resposta.setId(credito.getId()));
+        return cadastrarNovaProposta(resposta);
     }
 }

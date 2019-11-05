@@ -1,5 +1,6 @@
 package com.portifolio.magnum.cadastropropostaapi.domain.wrapper;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.portifolio.magnum.cadastropropostaapi.Model.PropostaCredito;
 import com.portifolio.magnum.cadastropropostaapi.domain.EstadoCivilEnum;
 import com.portifolio.magnum.cadastropropostaapi.domain.EstadoEnum;
@@ -40,6 +41,7 @@ public class PropostaCreditoWrapper implements Serializable {
     @ApiModelProperty(hidden = true)
     private String detalheResposta;
     @ApiModelProperty(hidden = true)
+    @JsonIgnore
     private Double score;
 
     public PropostaCreditoWrapper(PropostaCredito propostaCredito) {
