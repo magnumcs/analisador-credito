@@ -1,6 +1,7 @@
 package com.portifolio.magnum.cadastropropostaapi.service.Imp;
 
 import com.portifolio.magnum.cadastropropostaapi.Model.PropostaCredito;
+import com.portifolio.magnum.cadastropropostaapi.client.AnalisePropostaCreditoClient;
 import com.portifolio.magnum.cadastropropostaapi.domain.wrapper.PropostaCreditoRespostaWrapper;
 import com.portifolio.magnum.cadastropropostaapi.domain.wrapper.PropostaCreditoWrapper;
 import com.portifolio.magnum.cadastropropostaapi.exception.NoContentException;
@@ -17,16 +18,22 @@ import java.util.Optional;
 public class PropostaCreditoServiceImp implements PropostaCreditoService {
 
     private final PropostaCreditoRepository propostaCreditoRepository;
+    private final AnalisePropostaCreditoClient analisePropostaCreditoClient;
 
     @Autowired
-    public PropostaCreditoServiceImp(PropostaCreditoRepository propostaCreditoRepository) {
+    public PropostaCreditoServiceImp(PropostaCreditoRepository propostaCreditoRepository,
+                                     AnalisePropostaCreditoClient analisePropostaCreditoClient) {
         this.propostaCreditoRepository = propostaCreditoRepository;
+        this.analisePropostaCreditoClient = analisePropostaCreditoClient;
     }
 
     @Override
     public List<PropostaCreditoWrapper> listarTodasPropostas() {
         List<PropostaCreditoWrapper> propostaCreditoWrappers = new ArrayList<>();
         List<PropostaCredito> proppostasCredito = propostaCreditoRepository.findAll();
+        if(proppostasCredito.isEmpty()) {
+            throw new NoContentException("Propostas de crédito não encontradas.");
+        }
         proppostasCredito.forEach(propostaCredito -> propostaCreditoWrappers.add(new PropostaCreditoWrapper(propostaCredito)));
         return propostaCreditoWrappers;
     }
@@ -60,6 +67,10 @@ public class PropostaCreditoServiceImp implements PropostaCreditoService {
 
     @Override
     public PropostaCreditoRespostaWrapper analisarPropostaCredito(PropostaCreditoWrapper propostaCreditoWrapper) {
-        return null;
+        Optional<PropostaCredito> propostaCredito = propostaCreditoRepository.findByCpf(propostaCreditoWrapper.getCpf());
+        if(!propostaCredito.isPresent()) {
+            propostaCreditoWrapper = cadastrarNovaProposta(propostaCreditoWrapper);
+        }
+        return analisePropostaCreditoClient.analisarPropostaCredito(propostaCreditoWrapper);
     }
 }

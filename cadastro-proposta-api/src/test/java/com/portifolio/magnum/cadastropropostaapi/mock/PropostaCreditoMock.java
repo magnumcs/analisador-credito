@@ -24,6 +24,7 @@ public class PropostaCreditoMock {
 
         PropostaCredito propostaCredito = new PropostaCredito();
         propostaCredito.setNome("Marcos");
+        propostaCredito.setCpf("207.025.890-47");
         propostaCredito.setIdade(19);
         propostaCredito.setGenero(GeneroEnum.Masculino);
         propostaCredito.setEstadoCivil(EstadoCivilEnum.SOLTEIRO);

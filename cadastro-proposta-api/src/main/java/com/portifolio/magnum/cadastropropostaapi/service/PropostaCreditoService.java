@@ -1,6 +1,5 @@
 package com.portifolio.magnum.cadastropropostaapi.service;
 
-import com.portifolio.magnum.cadastropropostaapi.Model.PropostaCredito;
 import com.portifolio.magnum.cadastropropostaapi.domain.wrapper.PropostaCreditoRespostaWrapper;
 import com.portifolio.magnum.cadastropropostaapi.domain.wrapper.PropostaCreditoWrapper;
 

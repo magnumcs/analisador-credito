@@ -22,17 +22,17 @@ public class PropostaCreditoWrapper implements Serializable {
     private String nome;
     @ApiModelProperty(value = "cpf", position = 2, required = true)
     private String cpf;
-    @ApiModelProperty(value = "idade", position = 2, required = true)
+    @ApiModelProperty(value = "idade", position = 3, required = true)
     private Integer idade;
-    @ApiModelProperty(value = "genero", position = 3, required = true)
+    @ApiModelProperty(value = "genero", position = 4, required = true)
     private GeneroEnum genero;
-    @ApiModelProperty(value = "estadoCivil", position = 4, required = true)
+    @ApiModelProperty(value = "estadoCivil", position = 5, required = true)
     private EstadoCivilEnum estadoCivil;
-    @ApiModelProperty(value = "estado", position = 5, required = true)
+    @ApiModelProperty(value = "estado", position = 6, required = true)
     private EstadoEnum estado;
-    @ApiModelProperty(value = "dependentes", position = 6, required = true)
+    @ApiModelProperty(value = "dependentes", position = 7, required = true)
     private Integer dependentes;
-    @ApiModelProperty(value = "renda", position = 7, required = true)
+    @ApiModelProperty(value = "renda", position = 8, required = true)
     private Double renda;
 
     @ApiModelProperty(hidden = true)
@@ -45,6 +45,7 @@ public class PropostaCreditoWrapper implements Serializable {
     public PropostaCreditoWrapper(PropostaCredito propostaCredito) {
         this.id = propostaCredito.getId();
         this.nome = propostaCredito.getNome();
+        this.cpf = propostaCredito.getCpf();
         this.idade = propostaCredito.getIdade();
         this.genero = propostaCredito.getGenero();
         this.estadoCivil = propostaCredito.getEstadoCivil();
