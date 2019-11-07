@@ -1,0 +1,28 @@
+{
+  "propostas": [
+    {
+      "id": 1,
+      "nome": "Lucas",
+      "idade": "28",
+      "sexo": "Masculino",
+      "estadoCivil": "Solteiro",
+      "estado": "SC",
+      "dependentes": "0",
+      "renda": "2.500.00",
+      "respostaProposta": "Aprovado",
+      "detalheResposta": "Entre 500-1000"
+    },
+    {
+      "id": 1,
+      "nome": "Lucas",
+      "idade": "28",
+      "sexo": "Masculino",
+      "estadoCivil": "Solteiro",
+      "estado": "SC",
+      "dependentes": "0",
+      "renda": "2.500.00",
+      "respostaProposta": "Aprovado",
+      "detalheResposta": "Entre 500-1000"
+    }
+  ]
+}
