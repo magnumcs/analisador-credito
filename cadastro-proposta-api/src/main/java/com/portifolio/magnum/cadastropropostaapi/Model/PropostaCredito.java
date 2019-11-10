@@ -24,8 +24,11 @@ public class PropostaCredito {
     private String nome;
     private String cpf;
     private Integer idade;
+    @Enumerated(EnumType.STRING)
     private GeneroEnum genero;
+    @Enumerated(EnumType.STRING)
     private EstadoCivilEnum estadoCivil;
+    @Enumerated(EnumType.STRING)
     private EstadoEnum estado;
     private Integer dependentes;
     private Double renda;

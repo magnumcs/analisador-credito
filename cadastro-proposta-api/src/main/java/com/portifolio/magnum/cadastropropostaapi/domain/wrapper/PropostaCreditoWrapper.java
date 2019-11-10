@@ -1,6 +1,8 @@
 package com.portifolio.magnum.cadastropropostaapi.domain.wrapper;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.deser.std.EnumDeserializer;
 import com.portifolio.magnum.cadastropropostaapi.Model.PropostaCredito;
 import com.portifolio.magnum.cadastropropostaapi.domain.EstadoCivilEnum;
 import com.portifolio.magnum.cadastropropostaapi.domain.EstadoEnum;
@@ -14,7 +16,7 @@ import java.io.Serializable;
 
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
+@JsonFormat(shape = JsonFormat.Shape.OBJECT)
 public class PropostaCreditoWrapper implements Serializable {
 
     @ApiModelProperty(hidden = true)
@@ -43,6 +45,9 @@ public class PropostaCreditoWrapper implements Serializable {
     @ApiModelProperty(hidden = true)
     @JsonIgnore
     private Double score;
+
+    public PropostaCreditoWrapper() {
+    }
 
     public PropostaCreditoWrapper(PropostaCredito propostaCredito) {
         this.id = propostaCredito.getId();

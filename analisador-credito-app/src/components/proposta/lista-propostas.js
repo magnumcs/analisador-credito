@@ -18,7 +18,7 @@ class ListaPropostas extends Component {
     };
 
     componentDidMount() {
-        axios.get(`http://localhost:3000/propostas`)
+        axios.get(`http://localhost:8080/propostas/`)
             .then(res => {
                 const propostas = res.data;
                 this.setState({ propostas });
@@ -32,7 +32,7 @@ class ListaPropostas extends Component {
                     <MDBCol md="12">
                         <MDBCard>
                             <MDBCardBody>
-                                <MDBTable>
+                                <MDBTable responsive>
                                     <MDBTableHead color="default-color" textWhite>
                                         <tr>
                                             <th>#</th>

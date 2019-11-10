@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(value = "http://localhost:4200")
 @RestController
 @RequestMapping(value = "/propostas")
 public class CadastroPropostaController {
