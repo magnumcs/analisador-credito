@@ -19,6 +19,7 @@ para orquestração de todo o ecossistema.
 
 Para executar o projeto é necessário seguir os requisitos:
 
+- Sistema operacional Linux
 - Docker instalado;
 - Docker-compose instalado.
 - Git
