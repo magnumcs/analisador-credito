@@ -1,27 +1,5 @@
 version: '3.5'
 services:
-    cadastro-proposta-api:
-      image: cadastro-propsta-api
-      ports:
-        - 8080:8080
-      networks:
-        - app-net
-      build:
-        context: ./cadastro-proposta-api/
-        dockerfile: Dockerfile
-      restart: unless-stopped
-    validador-credito-api:
-      image: validador-credito-api
-      depends_on:
-        - cadastro-proposta-api
-      ports:
-        - 8081:8081
-      networks:
-        - app-net
-      build:
-        context: ./validador-credito-api/
-        dockerfile: Dockerfile
-      restart: unless-stopped
     analisador-credito-app:
       image: analisador-credito-app
       depends_on:
@@ -33,6 +11,28 @@ services:
       build:
         context: ./analisador-credito-app/
         dockerfile: Dockerfile
-      restart: unless-stopped       
+      restart: unless-stopped
+    cadastro-proposta-api:
+      image: cadastro-propsta-api
+      depends_on:
+        - validador-credito-api
+      ports:
+        - 8080:8080
+      networks:
+        - app-net
+      build:
+        context: ./cadastro-proposta-api/
+        dockerfile: Dockerfile
+      restart: unless-stopped     
+    validador-credito-api:
+      image: validador-credito-api
+      ports:
+        - 8081:8081
+      networks:
+        - app-net
+      build:
+        context: ./validador-credito-api/
+        dockerfile: Dockerfile
+      restart: unless-stopped
 networks:
   app-net:

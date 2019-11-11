@@ -16,16 +16,16 @@ export const estados = [
     { value: '14', label: 'PB' },
     { value: '15', label: 'PR' },
     { value: '16', label: 'PE' },
-    { value: '16', label: 'PI' },
-    { value: '16', label: 'RJ' },
-    { value: '16', label: 'RN' },
-    { value: '16', label: 'RS' },
-    { value: '16', label: 'RO' },
-    { value: '16', label: 'RR' },
-    { value: '16', label: 'SC' },
-    { value: '16', label: 'SP' },
-    { value: '16', label: 'SE' },
-    { value: '16', label: 'TO' }
+    { value: '17', label: 'PI' },
+    { value: '18', label: 'RJ' },
+    { value: '19', label: 'RN' },
+    { value: '20', label: 'RS' },
+    { value: '21', label: 'RO' },
+    { value: '22', label: 'RR' },
+    { value: '23', label: 'SC' },
+    { value: '24', label: 'SP' },
+    { value: '25', label: 'SE' },
+    { value: '26', label: 'TO' }
 ];
 
 export const genero = [
@@ -36,7 +36,7 @@ export const genero = [
 export const estadoCivil = [
     { value: '0', label: 'Solteiro' },
     { value: '1', label: 'Casado' },
-    { value: '2', label: 'Divorciada' },
+    { value: '2', label: 'Divorciado' },
     { value: '3', label: 'Viúvo' },
 ];
 

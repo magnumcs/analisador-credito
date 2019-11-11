@@ -4,7 +4,7 @@ public enum EstadoCivilEnum {
 
     SOLTEIRO(0, "Solteiro"),
     CASADO(1, "Casado"),
-    DIVORCIADO(3, "Divorciada"),
+    DIVORCIADO(3, "Divorciado"),
     VIUVO(4, "Viúvo");
 
     private Integer id;
